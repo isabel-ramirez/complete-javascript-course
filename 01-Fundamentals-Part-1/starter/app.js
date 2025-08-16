@@ -112,3 +112,61 @@ console.log(
 );
 
 console.groupEnd();
+
+// CODING CHALLENGES
+console.group('JS Fundamentals Part 1 - CODING CHALLENGES');
+
+// Challenge 1
+let massMark = 78;
+let heightMark = 1.69;
+let massJohn = 92;
+let heightJohn = 1.95;
+
+let bmiMark = massMark / heightMark ** 2;
+let bmiJohn = massJohn / heightJohn ** 2;
+let markHigherBMI = bmiMark > bmiJohn;
+
+console.log(markHigherBMI);
+
+// Challenge 2
+let output;
+
+if (bmiMark > bmiJohn) {
+    output = `Mark's BMI (${bmiMark}) is higher than John's (${bmiJohn})!`;
+} else if (bmiJohn < bmiMark) {
+    output = `John's BMI (${bmiJohn}) is higher than Mark's (${bmiMark})!`;
+} else {
+    output = `John and Mark have the same BMI (${bmiJohn}!)`;
+}
+
+console.log(output);
+
+// Challenge 3
+let avgDolphinScore = (97 + 112 + 101) / 3;
+let avgKoalasScore = (109 + 95 + 106) / 3;
+const minScore = 100;
+
+if (avgDolphinScore === avgKoalasScore && avgDolphinScore >= 100) {
+    console.log(`TIE! both teams have a score of ${avgDolphinScore}!`);
+} else if (avgDolphinScore > avgKoalasScore && avgDolphinScore >= 100) {
+    console.log(`DOPLHINS WIN! ${avgDolphinScore} to ${avgKoalasScore}`);
+} else {
+    if (avgKoalasScore >= 100) {
+        console.log(`KOALAS WIN! ${avgKoalasScore} to ${avgDolphinScore}`);
+    }
+}
+
+// Challenge 4
+const standardTip = 0.15;
+const alternateTip = 0.2;
+
+let billValue = 430;
+let tipAmount =
+    billValue *
+    (billValue >= 50 && billValue <= 300 ? standardTip : alternateTip);
+
+console.log(
+    `The bill was $${billValue}, the tip was $${tipAmount}, and the total value $${
+        billValue + tipAmount
+    }.`
+);
