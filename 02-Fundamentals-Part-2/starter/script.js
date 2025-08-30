@@ -266,6 +266,149 @@ console.log(jonas.age);
 
 console.log(jonas.getSummary());
 
+// ASSIGNMENTS
+console.group('JS Fundamentals - Part 2 ASSIGNMENTS');
+// 1) Functions
+function describeCountry(country, population, capitalCity) {
+  return `${country} has ${population} million people and its capital city is ${capitalCity}.`;
+}
+
+const countryInfo1 = describeCountry('Japan', 123, 'Tokyo');
+const countryInfo2 = describeCountry('South Korea', 51, 'Seoul');
+const countryInfo3 = describeCountry('Mexico', 138, 'Mexico City');
+
+console.group('1) Functions');
+console.log(countryInfo1);
+console.log(countryInfo2);
+console.log(countryInfo3);
+
+console.groupEnd();
+
+// 2) Function Declaration vs Expressions
+function percentageOfWorld1(population) {
+  return (population / 7900) * 100;
+}
+
+console.group('2) Function Declaration vs Expressions');
+console.log(percentageOfWorld1(123));
+console.log(percentageOfWorld1(51));
+console.log(percentageOfWorld1(138));
+
+const percentageOfWorld2 = function (population) {
+  return (population / 7900) * 100;
+};
+
+console.log(percentageOfWorld1(123));
+console.log(percentageOfWorld1(51));
+console.log(percentageOfWorld1(138));
+console.groupEnd();
+
+// 3) Arrow Functions
+const percentageOfWorld3 = population => (population / 7900) * 100;
+
+console.group('3) Arrow Functions');
+console.log(percentageOfWorld1(123));
+console.log(percentageOfWorld1(51));
+console.log(percentageOfWorld1(138));
+console.groupEnd();
+
+// 4) Functions Calling Other Functions
+const describePopulation = function (country, population) {
+  return `${country} has ${population} million people, which is about ${percentageOfWorld1(
+    population
+  )}% of the world.`;
+};
+
+console.group('4) Functions Calling Other Functions');
+console.log(describePopulation('Japan', 123));
+console.log(describePopulation('South Korea', 51));
+console.log(describePopulation('Mexico', 138));
+console.groupEnd();
+
+// 5) Introduction to Arrays
+const populations = [123, 51, 138, 342];
+
+console.group('5) Introduction to Arrays');
+console.log(populations.length === 4);
+
+const percentages = [
+  percentageOfWorld1(populations[0]),
+  percentageOfWorld1(populations[1]),
+  percentageOfWorld1(populations[2]),
+  percentageOfWorld1(populations[3]),
+];
+console.log(percentages);
+console.groupEnd();
+
+// 6) Basic Array Operations (Methods)
+const neighbors = [
+  'Argentina',
+  'Bolivia',
+  'Colombia',
+  'Guyanaaaaaaa',
+  'Paraguay',
+  'Peru',
+  'Suriname',
+  'Uruguay',
+  'Venezuela',
+];
+
+console.group('6) Basic Array Operations (Methods)');
+neighbors.push('Utopia');
+console.log(neighbors);
+
+neighbors.pop();
+console.log(neighbors);
+
+if (!neighbors.includes('Germany')) {
+  console.log('Probably not a central European country :D');
+}
+
+neighbors[neighbors.indexOf('Guyanaaaaaaa')] = 'Guyana';
+console.log(neighbors);
+console.groupEnd();
+
+// 7) Introduction to Objects
+const myCountry = {
+  country: 'Brazil',
+  capital: 'Brasilia',
+  language: 'Portuguese',
+  population: 213,
+  neighbors: neighbors,
+  describe: function () {
+    console.log(
+      `${this.country} has ${this.population} million ${this.language}-speaking people, ${this.neighbors.length} neighboring countries, and a capital called ${this.capital}.`
+    );
+  },
+  checkIsland: function () {
+    this.isIsland = this.neighbors.length > 0 ? true : false;
+  },
+};
+
+console.group('7) Introduction to Objects');
+console.log(myCountry);
+console.groupEnd();
+
+// 8) Dot vs Bracket Notation
+console.group('8) Dot vs Bracket Notation');
+console.log(
+  `${myCountry.country} has ${myCountry.population} million ${myCountry.language}-speaking people, ${myCountry.neighbors.length} neighboring countries and a capital called ${myCountry.capital}.`
+);
+myCountry['population'] += 2;
+console.log(myCountry.population);
+myCountry['population'] -= 2;
+console.log(myCountry.population);
+console.groupEnd();
+
+// 9) Object Methods
+console.group('9) Object Methods');
+myCountry.describe();
+myCountry.checkIsland();
+console.log(myCountry);
+console.groupEnd();
+
+console.groupEnd();
+
 // CODING CHALLENGES
 // Challenge 1
 const calcAverage = (a, b, c) => (a + b + c) / 3;
