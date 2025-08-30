@@ -179,6 +179,93 @@ if (friends.includes('Steven')) {
 }
 */
 
+// INTRODUCTION TO OBJECTS
+/*
+const jonas = {
+  firstName: 'Jonas',
+  lastName: 'Schmedtmann',
+  age: 2037 - 1991,
+  job: 'teacher',
+  friends: ['Michael', 'Peter', 'Steven'],
+};
+
+console.log(jonas);
+*/
+
+// DOT VS BRACKET NOTATION
+/*
+console.log(jonas.lastName);
+console.log(jonas['lastName']);
+
+const nameKey = 'Name';
+console.log(jonas['first' + nameKey]);
+console.log(jonas['last' + nameKey]);
+
+const interestedIn = prompt(
+  'What do you want to know about Jonas? Choose between firstName, lastName, age, job, and friends:'
+);
+
+if (jonas[interestedIn]) {
+  console.log(`Jonas' ${interestedIn} is/are: ${jonas[interestedIn]}`);
+} else {
+  console.log(`Jonas does not have any info for ${interestedIn}.`);
+}
+
+jonas.location = 'Portugal';
+jonas['twitter'] = '@jonasschmedtman';
+console.log(jonas);
+
+// Challenge
+console.log(
+  `${jonas.firstName} has ${jonas.friends.length} friends, and his best friend is called ${jonas.friends[0]}.`
+);
+*/
+
+// OBJECT METHODS
+const jonas = {
+  firstName: 'Jonas',
+  lastName: 'Schmedtmann',
+  birthYear: 1991,
+  job: 'teacher',
+  friends: ['Michael', 'Peter', 'Steven'],
+  hasDriversLicense: true,
+
+  // First version
+  // calcAge: function(birthYear) {
+  //   return 2037 - birthYear;
+  // }
+
+  // Second version, added this keyword
+  // calcAge: function () {
+  //   // console.log(this);
+  //   return 2037 - this.birthYear;
+  // },
+
+  // Third version, use function to update another property
+  // Can be used to calculate/update age once,
+  // and then we access the age from the age property
+  // instead of running calcAge each time we want to get age
+  calcAge: function () {
+    this.age = 2037 - this.birthYear;
+    return this.age;
+  },
+
+  // Challenge
+  getSummary: function () {
+    return `${this.firstName} is a ${this.calcAge()}-year old ${
+      this.job
+    }, and he has ${this.hasDriversLicense ? 'a' : 'no'} driver's license.`;
+  },
+};
+
+console.log(jonas.calcAge());
+// console.log(jonas['calcAge']());
+console.log(jonas.age);
+console.log(jonas.age);
+console.log(jonas.age);
+
+console.log(jonas.getSummary());
+
 // CODING CHALLENGES
 // Challenge 1
 const calcAverage = (a, b, c) => (a + b + c) / 3;
