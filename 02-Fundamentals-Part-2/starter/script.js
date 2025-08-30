@@ -144,6 +144,7 @@ const ages = [
 */
 
 // BASIC ARRAY OPERATIONS (METHODS)
+/*
 const friends = ['Michael', 'Steven', 'Peter'];
 
 // Add elements
@@ -176,6 +177,8 @@ console.log(friends.includes(23));
 if (friends.includes('Steven')) {
   console.log('You have a friend named Steven');
 }
+*/
+
 // CODING CHALLENGES
 // Challenge 1
 const calcAverage = (a, b, c) => (a + b + c) / 3;
@@ -200,3 +203,18 @@ checkWinner(avgScoreDolphins, avgScoreKoalas);
 avgScoreDolphins = calcAverage(85, 54, 41);
 avgScoreKoalas = calcAverage(23, 34, 27);
 checkWinner(avgScoreDolphins, avgScoreKoalas);
+
+// Challenge 2
+const calcTip = function (billValue) {
+  return billValue >= 50 && billValue <= 300
+    ? billValue * 0.15
+    : billValue * 0.2;
+};
+
+const bills = [125, 555, 44];
+const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
+const total = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]];
+
+console.log(bills);
+console.log(tips);
+console.log(total);
