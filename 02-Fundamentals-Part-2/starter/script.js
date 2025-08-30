@@ -101,3 +101,28 @@ const yearsUntilRetirement = function (birthYear, firstName) {
 
 console.log(yearsUntilRetirement(1991, 'Jonas'));
 console.log(yearsUntilRetirement(1950, 'Mike'));
+
+// CODING CHALLENGES
+// Challenge 1
+const calcAverage = (a, b, c) => (a + b + c) / 3;
+
+// Test 1
+let avgScoreDolphins = calcAverage(44, 23, 71);
+let avgScoreKoalas = calcAverage(65, 54, 49);
+
+const checkWinner = function (avgDolphins, avgKoalas) {
+  if (avgDolphins >= avgKoalas * 2) {
+    console.log(`Dolphins win (${avgDolphins} vs. ${avgKoalas})`);
+  } else if (avgKoalas >= avgDolphins * 2) {
+    console.log(`Koalas win (${avgKoalas} vs. ${avgDolphins})`);
+  } else {
+    console.log('No team wins!');
+  }
+};
+
+checkWinner(avgScoreDolphins, avgScoreKoalas);
+
+// Test 2
+avgScoreDolphins = calcAverage(85, 54, 41);
+avgScoreKoalas = calcAverage(23, 34, 27);
+checkWinner(avgScoreDolphins, avgScoreKoalas);
