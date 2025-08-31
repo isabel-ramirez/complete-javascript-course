@@ -574,7 +574,9 @@ console.groupEnd();
 console.groupEnd();
 
 // CODING CHALLENGES
+console.group('CHALLENGES');
 // Challenge 1
+console.group('Challenge 1');
 const calcAverage = (a, b, c) => (a + b + c) / 3;
 
 // Test 1
@@ -597,8 +599,10 @@ checkWinner(avgScoreDolphins, avgScoreKoalas);
 avgScoreDolphins = calcAverage(85, 54, 41);
 avgScoreKoalas = calcAverage(23, 34, 27);
 checkWinner(avgScoreDolphins, avgScoreKoalas);
+console.groupEnd();
 
 // Challenge 2
+console.group('Challenge 2');
 const calcTip = function (billValue) {
   return billValue >= 50 && billValue <= 300
     ? billValue * 0.15
@@ -612,8 +616,10 @@ const total = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]];
 console.log(bills);
 console.log(tips);
 console.log(total);
+console.groupEnd();
 
 // Challenge 3
+console.group('Challenge 3');
 const mark = {
   fullName: 'Mark Miller',
   mass: 78,
@@ -654,3 +660,32 @@ if (mark.bmi > john.bmi) {
     `${mark.fullName} and ${john.fullName} have the same BMI (${mark.bmi})!`
   );
 }
+console.groupEnd();
+
+// Challenge 4
+console.group('Challenge 4');
+
+const bills1 = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+const tips1 = [];
+const totals1 = [];
+
+for (let i = 0; i < bills1.length; i++) {
+  let tip = calcTip(bills1[i]);
+  tips1.push(tip);
+  totals1.push(bills1[i] + tip);
+}
+
+console.log(bills1, tips1, totals1);
+
+const calcAverage1 = function (arr) {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }
+  return sum / arr.length;
+};
+
+console.log(calcAverage1(totals1));
+
+console.groupEnd();
+console.groupEnd();
