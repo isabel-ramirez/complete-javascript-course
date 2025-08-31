@@ -353,6 +353,7 @@ for (let exercise = 1; exercise < 4; exercise++) {
 */
 
 // THE WHILE LOOP
+/*
 for (let rep = 1; rep <= 10; rep++) {
   console.log(`FOR LOOP Lifting weights repetition ${rep}`);
 }
@@ -374,6 +375,7 @@ while (diceRoll !== 6) {
     console.log('You rolled a 6!! Loop is about to end :)');
   }
 }
+*/
 
 // ASSIGNMENTS
 console.group('JS Fundamentals - Part 2 ASSIGNMENTS');
@@ -490,7 +492,7 @@ const myCountry = {
     );
   },
   checkIsland: function () {
-    this.isIsland = this.neighbors.length > 0 ? true : false;
+    this.isIsland = this.neighbors.length === 0 ? true : false;
   },
 };
 
@@ -514,6 +516,59 @@ console.group('9) Object Methods');
 myCountry.describe();
 myCountry.checkIsland();
 console.log(myCountry);
+console.groupEnd();
+
+// 10) Iteration: The for Loop
+console.group('10) Iteration: The for Loop');
+const numVoters = 50;
+
+for (let i = 1; i <= numVoters; i++) {
+  console.log(`Voter number ${i} is currently voting!`);
+}
+
+console.groupEnd();
+
+// 11) Looping Arrays, Breaking & Continuing
+const percentages2 = [];
+
+for (let i = 0; i < populations.length; i++) {
+  percentages2.push(percentageOfWorld1(populations[i]));
+}
+
+const percentages3 = populations.map(pop => percentageOfWorld1(pop));
+
+console.group('11) Looping Arrays, Breaking & Continuing');
+console.log('percentages', percentages);
+console.log('percentages2', percentages2);
+console.log('percentages3', percentages3);
+console.groupEnd();
+
+// 12) Looping Backwards and Loops in Loops
+console.group('12) Looping Backwards and Loops in Loops');
+
+const listOfNeighbors = [
+  ['Canada', 'Mexico'],
+  ['Spain'],
+  ['Norway', 'Sweden', 'Russia'],
+];
+
+for (let i = 0; i < listOfNeighbors.length; i++) {
+  for (let j = 0; j < listOfNeighbors[i].length; j++) {
+    console.log(`Neighbor: ${listOfNeighbors[i][j]}`);
+  }
+}
+console.groupEnd();
+
+// 13) The while Loop
+console.group('13) The while Loop');
+const percentages4 = [];
+
+let i = 0;
+while (i < populations.length) {
+  percentages4.push(percentageOfWorld1(populations[i]));
+  i++;
+}
+console.log(percentages4);
 console.groupEnd();
 
 console.groupEnd();
