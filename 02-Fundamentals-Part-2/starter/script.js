@@ -730,13 +730,15 @@ console.log(sumOfTripledEvens2(numbers));
 const camelize = function (str) {
   const wordArr = str.split('-');
 
-  const camelArr = [wordArr[0]];
-  for (let i = 1; i < wordArr.length; i++) {
-    const firstLetter = wordArr[i].at(0).toUpperCase();
-    camelArr.push(firstLetter + wordArr[i].slice(1));
+  const camelArr = [];
+  for (let i = 0; i < wordArr.length; i++) {
+    if (i === 0) {
+      camelArr.push(wordArr[i]);
+    } else {
+      camelArr.push(wordArr[i][0].toUpperCase() + wordArr[i].slice(1));
+    }
   }
-  const camelizedString = camelArr.join('');
-  return camelizedString;
+  return camelArr.join('');
 };
 
 console.log(camelize('list-style-image'));
