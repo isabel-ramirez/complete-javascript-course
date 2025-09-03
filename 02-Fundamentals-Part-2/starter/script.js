@@ -690,6 +690,7 @@ console.log(calcAverage1(totals1));
 console.groupEnd();
 console.groupEnd();
 
+// TOP LOOPS & ARRAYS MODULE
 const numbers = [1, 2, 3, 4, 5, 6];
 
 const sumOfTripledEvens = function (arr) {
@@ -719,3 +720,25 @@ const sumOfTripledEvens2 = function (arr) {
 
 console.log(sumOfTripledEvens(numbers));
 console.log(sumOfTripledEvens2(numbers));
+
+// TOP/ JS INFO ARRAY METHODS EXERCISES
+
+// 1) Translate border-left-width to borderLeftWidth
+// camelize("background-color") == 'backgroundColor';
+// camelize("list-style-image") == 'listStyleImage';
+// camelize("-webkit-transition") == 'WebkitTransition';
+const camelize = function (str) {
+  const wordArr = str.split('-');
+
+  const camelArr = [wordArr[0]];
+  for (let i = 1; i < wordArr.length; i++) {
+    const firstLetter = wordArr[i].at(0).toUpperCase();
+    camelArr.push(firstLetter + wordArr[i].slice(1));
+  }
+  const camelizedString = camelArr.join('');
+  return camelizedString;
+};
+
+console.log(camelize('list-style-image'));
+console.log(camelize('background-color'));
+console.log(camelize('-webkit-transition'));
