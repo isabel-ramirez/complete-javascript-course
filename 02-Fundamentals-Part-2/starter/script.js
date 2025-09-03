@@ -728,12 +728,12 @@ console.log(sumOfTripledEvens2(numbers));
 // camelize("list-style-image") == 'listStyleImage';
 // camelize("-webkit-transition") == 'WebkitTransition';
 const camelize = function (str) {
-  const wordArr = str.split('-');
-
-  const camelArr = wordArr.map((word, idx) =>
-    idx === 0 ? word : word[0].toUpperCase() + word.slice(1)
-  );
-  return camelArr.join('');
+  return str
+    .split('-')
+    .map((word, idx) =>
+      idx === 0 ? word : word[0].toUpperCase() + word.slice(1)
+    )
+    .join('');
 };
 
 console.log(camelize('list-style-image'));
