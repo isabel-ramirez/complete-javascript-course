@@ -750,3 +750,17 @@ const arr = [5, 3, 8, 1];
 
 console.log(filterRange(arr, 1, 4));
 console.log(arr);
+
+// Filter range "in place"
+const filterRangeInPlace = function (arr, a, b) {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] >= a && arr[i] <= b) continue;
+
+    arr.splice(i, 1);
+    i--;
+  }
+
+  return arr;
+};
+
+console.log(filterRangeInPlace(arr, 1, 4));
