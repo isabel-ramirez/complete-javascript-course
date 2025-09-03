@@ -751,7 +751,7 @@ const arr = [5, 3, 8, 1];
 console.log(filterRange(arr, 1, 4));
 console.log(arr);
 
-// Filter range "in place"
+// 3) Filter range "in place"
 const filterRangeInPlace = function (arr, a, b) {
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] >= a && arr[i] <= b) continue;
@@ -764,3 +764,12 @@ const filterRangeInPlace = function (arr, a, b) {
 };
 
 console.log(filterRangeInPlace(arr, 1, 4));
+console.log(arr);
+
+// 4) Sort in decreasing order
+const arr2 = [5, 2, 1, -10, 8];
+
+// increasing order
+console.log(arr2.sort((a, b) => a - b));
+// decreasing order
+console.log(arr2.sort((a, b) => b - a));
