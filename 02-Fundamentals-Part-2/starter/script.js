@@ -730,14 +730,9 @@ console.log(sumOfTripledEvens2(numbers));
 const camelize = function (str) {
   const wordArr = str.split('-');
 
-  const camelArr = [];
-  for (let i = 0; i < wordArr.length; i++) {
-    if (i === 0) {
-      camelArr.push(wordArr[i]);
-    } else {
-      camelArr.push(wordArr[i][0].toUpperCase() + wordArr[i].slice(1));
-    }
-  }
+  const camelArr = wordArr.map((word, idx) =>
+    idx === 0 ? word : word[0].toUpperCase() + word.slice(1)
+  );
   return camelArr.join('');
 };
 
