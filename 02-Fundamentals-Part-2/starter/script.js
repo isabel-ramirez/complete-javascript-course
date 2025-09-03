@@ -689,3 +689,33 @@ console.log(calcAverage1(totals1));
 
 console.groupEnd();
 console.groupEnd();
+
+const numbers = [1, 2, 3, 4, 5, 6];
+
+const sumOfTripledEvens = function (arr) {
+  // Filter for only evens
+  const evenNums = arr.filter(num => num % 2 === 0);
+
+  // Triple all even numbers
+  const tripledEvens = evenNums.map(num => num * 3);
+
+  console.log(tripledEvens);
+
+  // Sum all tripled evens
+  const tripledEvenSum = tripledEvens.reduce(
+    (sum, current) => sum + current,
+    0
+  );
+
+  return tripledEvenSum;
+};
+
+const sumOfTripledEvens2 = function (arr) {
+  return arr
+    .filter(num => num % 2 === 0)
+    .map(num => num * 3)
+    .reduce((sum, current) => sum + current, 0);
+};
+
+console.log(sumOfTripledEvens(numbers));
+console.log(sumOfTripledEvens2(numbers));
