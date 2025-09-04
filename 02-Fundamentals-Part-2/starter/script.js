@@ -784,3 +784,26 @@ const copySorted = function (arr) {
 let sorted = copySorted(arr3);
 console.log(sorted);
 console.log(arr3);
+
+// 6) Shuffle an array
+let arr4 = [1, 2, 3];
+
+// 1 2 3
+// 1 3 2
+// 2 1 3
+// 2 3 1
+// 3 1 2
+// 3 2 1
+
+const shuffle = function (arr) {
+  return arr.sort((a, b) => Math.trunc(Math.random() * 3));
+};
+
+shuffle(arr4);
+console.log(arr4);
+shuffle(arr4);
+console.log(arr4);
+shuffle(arr4);
+console.log(arr4);
+shuffle(arr4);
+console.log(arr4);
