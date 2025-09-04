@@ -807,3 +807,28 @@ shuffle(arr4);
 console.log(arr4);
 shuffle(arr4);
 console.log(arr4);
+
+arr4 = [1, 2, 3];
+
+// Fisher-Yates solution
+// Walks array in reverse order and swaps each element with a random one before it
+// All permuatations appear with the same probability
+// Also there's no "sorting" overhead, so better performance-wise as well
+const shuffleFisherYates = function (arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    // Random index from 0 to i
+    let j = Math.floor(Math.random() * (i + 1));
+
+    // Swap elements arr[i] and arr[j] using "destructuring assignment" syntax
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+};
+
+shuffleFisherYates(arr4);
+console.log(arr4);
+shuffleFisherYates(arr4);
+console.log(arr4);
+shuffleFisherYates(arr4);
+console.log(arr4);
+shuffleFisherYates(arr4);
+console.log(arr4);
