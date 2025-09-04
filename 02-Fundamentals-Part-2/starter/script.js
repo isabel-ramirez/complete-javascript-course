@@ -773,3 +773,14 @@ const arr2 = [5, 2, 1, -10, 8];
 console.log(arr2.sort((a, b) => a - b));
 // decreasing order
 console.log(arr2.sort((a, b) => b - a));
+
+// 5) Copy and sort array
+const arr3 = ['HTML', 'JavaScript', 'CSS'];
+
+const copySorted = function (arr) {
+  return arr.slice().sort();
+};
+
+let sorted = copySorted(arr3);
+console.log(sorted);
+console.log(arr3);
