@@ -754,6 +754,7 @@ console.log(arr);
 // 3) Filter range "in place"
 const filterRangeInPlace = function (arr, a, b) {
   for (let i = 0; i < arr.length; i++) {
+    // Delete element from array if not within range
     if (arr[i] >= a && arr[i] <= b) continue;
 
     arr.splice(i, 1);
@@ -766,7 +767,7 @@ const filterRangeInPlace = function (arr, a, b) {
 console.log(filterRangeInPlace(arr, 1, 4));
 console.log(arr);
 
-// 4) Sort in decreasing order
+// 4) Sort in decreasing order *
 const arr2 = [5, 2, 1, -10, 8];
 
 // increasing order
@@ -785,7 +786,7 @@ let sorted = copySorted(arr3);
 console.log(sorted);
 console.log(arr3);
 
-// 6) Shuffle an array
+// 6) Shuffle an array *
 let arr4 = [1, 2, 3];
 
 // 1 2 3
