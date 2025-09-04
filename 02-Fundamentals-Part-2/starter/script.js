@@ -832,3 +832,30 @@ shuffleFisherYates(arr4);
 console.log(arr4);
 shuffleFisherYates(arr4);
 console.log(arr4);
+
+// 7) Filter unique array members
+const unique = function (arr) {
+  const uniqueArr = [];
+
+  for (let item of arr) {
+    // Only add item if it is not already in the unique array
+    if (!uniqueArr.includes(item)) {
+      uniqueArr.push(item);
+    }
+  }
+  return uniqueArr;
+};
+
+let strings = [
+  'Hare',
+  'Krishna',
+  'Hare',
+  'Krishna',
+  'Krishna',
+  'Krishna',
+  'Hare',
+  'Hare',
+  ':-O',
+];
+
+console.log(unique(strings));
