@@ -37,8 +37,11 @@ document.querySelector('.check').addEventListener('click', function () {
         : 'TOO HIGH oMG (´∀｀)'
     );
 
-    score--;
-    updateScore();
+    if (score > 0) {
+      score--;
+      updateScore();
+    }
+
     if (score === 0) {
       displayMessage('GAME OVER!!');
     }
