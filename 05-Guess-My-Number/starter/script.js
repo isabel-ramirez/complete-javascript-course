@@ -20,7 +20,7 @@ const scoreElement = document.querySelector('.score');
 const numberElement = document.querySelector('.number');
 
 // Define secret number
-const secretNum = Math.trunc(Math.random() * 20 + 1);
+let secretNum = Math.trunc(Math.random() * 20 + 1);
 console.log(secretNum);
 let score = 20;
 let highScore = 0;
@@ -55,4 +55,16 @@ const myFunc = function () {
   }
 };
 
+const resetGame = function () {
+  secretNum = Math.trunc(Math.random() * 20) + 1;
+  score = 20;
+  scoreElement.textContent = score;
+  messageElement.textContent = 'Start guessing...';
+  document.querySelector('.guess').value = '';
+  numberElement.textContent = '?';
+  numberElement.style.width = '15rem';
+  document.querySelector('body').style.backgroundColor = '#222';
+};
+
 document.querySelector('.check').addEventListener('click', myFunc);
+document.querySelector('.again').addEventListener('click', resetGame);
