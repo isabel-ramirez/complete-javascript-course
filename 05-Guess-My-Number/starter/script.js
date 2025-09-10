@@ -22,7 +22,7 @@ const numberElement = document.querySelector('.number');
 // Define secret number
 const secretNum = Math.trunc(Math.random() * 20 + 1);
 console.log(secretNum);
-let score = scoreElement.textContent;
+let score = 20;
 let highScore = 0;
 // Check user's guess against secret number
 // Wrong guess: Increment score, while loop ask for another guess
@@ -38,6 +38,8 @@ const myFunc = function () {
     messageElement.textContent =
       'WOW CONGRATS THATS THE CORRECT NUMBER!! ! ⸂⸂⸜(രᴗര๑)⸝⸃⸃';
     numberElement.textContent = secretNum;
+    numberElement.style.width = '30rem';
+    document.querySelector('body').style.backgroundColor = '#60b347';
   } else {
     if (guess < secretNum) {
       messageElement.textContent = 'LMAOOO NO.. THATS TOO LOW (>▽<)';
