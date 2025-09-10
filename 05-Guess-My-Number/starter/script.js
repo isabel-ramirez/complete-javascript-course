@@ -40,6 +40,11 @@ const myFunc = function () {
     numberElement.textContent = secretNum;
     numberElement.style.width = '30rem';
     document.querySelector('body').style.backgroundColor = '#60b347';
+
+    if (score > highScore) {
+      highScore = score;
+      document.querySelector('.highscore').textContent = highScore;
+    }
   } else {
     if (guess < secretNum) {
       messageElement.textContent = 'LMAOOO NO.. THATS TOO LOW (>▽<)';
