@@ -1,6 +1,8 @@
 'use strict';
 
 // Select elements
+const player0El = document.querySelector('.player--0');
+const player1El = document.querySelector('.player--1');
 const score0El = document.querySelector('#score--0');
 const score1El = document.getElementById('score--1');
 const current0El = document.getElementById('current--0');
@@ -15,8 +17,7 @@ score0El.textContent = 0;
 score1El.textContent = 0;
 diceEl.classList.add('hidden');
 let activePlayerId = 0;
-let totalScore0 = 0;
-let totalScore1 = 0;
+const totalScores = [0, 0];
 let currentScore = 0;
 
 // Rolling dice functionality
@@ -30,23 +31,33 @@ btnRoll.addEventListener('click', function () {
   if (diceNum !== 1) {
     // Add dice to current score
     currentScore += diceNum;
-    current0El.textContent = currentScore;
+    document.getElementById(`current--${activePlayerId}`).textContent = currentScore;
   } else {
-    // Switch to next player
+    // Switch players
+    currentScore = 0;
+    document.getElementById(`current--${activePlayerId}`).textContent = currentScore;
+    activePlayerId = activePlayerId ? 0 : 1;
+    player0El.classList.toggle('player--active');
+    player1El.classList.toggle('player--active');
   }
 })
 
 // Holding score functionality
 btnHold.addEventListener('click', function () {
-  totalScore0 += currentScore;
-  score0El.textContent = totalScore0;
+  totalScores[activePlayerId] += currentScore;
+  score0El.textContent = totalScores[activePlayerId];
   currentScore = 0;
   current0El.textContent = currentScore;
 
-  if (totalScore0 >= 100) {
+  if (totalScores[activePlayerId] >= 100) {
     // Current player wins
 
   } else {
     // Switch players
+    currentScore = 0;
+    document.getElementById(`current--${activePlayerId}`).textContent = currentScore;
+    activePlayerId = activePlayerId ? 0 : 1;
+    player0El.classList.toggle('player--active');
+    player1El.classList.toggle('player--active');
   }
 })
