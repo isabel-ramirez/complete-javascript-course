@@ -44,4 +44,47 @@ const restaurant = {
       close: 24,
     },
   },
+
+  order: function(starterIdx, mainIdx) {
+    return [this.starterMenu[starterIdx], this.mainMenu[mainIdx]];
+  }
 };
+
+// LECTURE 108 - Destructuring Arrays
+let [main, secondary] = restaurant.categories;
+console.log(main, secondary);
+
+// Swap values
+[secondary, main] = [main, secondary];
+console.log(main, secondary);
+
+// -- Without destructuring you would need a 'temp' variable
+// const temp = main;
+// main = secondary;
+// secondary = temp;
+// console.log(main, secondary);
+
+
+// Receive 2 return values from a function
+// -- Quick way of immediately creating 2 variables out of a function call
+const [starter1, main1] = restaurant.order(2, 0);
+console.log(`I got ${starter1} and ${main1}!`);
+
+
+// Destructure a nested array
+const nested = [2, 4, [5, 6]];
+const [i, , j] = nested;
+console.log(i, j);  // 2, [5, 6]
+
+// -- Destructuring inside destructuring
+const [w, x, [y, z]] = nested;
+console.log(w, x, y, z);  // 2, 4, 5, 6
+
+
+// Set default value for the variables while destructuring them
+// -- Useful for when we don't know the lenght of an array (e.g. array from an API)
+const [a, b, c] = [8, 9];
+console.log(a, b, c);  // 8, 9, undefined
+
+const [d = 0, e = 0, f = 0] = [8, 9];
+console.log(d, e, f);  // 8, 9, 0
