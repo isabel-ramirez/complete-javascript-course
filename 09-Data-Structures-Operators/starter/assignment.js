@@ -184,7 +184,9 @@ const books = [
   }
 ];
 
+console.group('ASSIGNMENTS');
 // Destructuring arrays
+console.group('Destructuring Arrays');
 // 1.1
 const [firstBook, secondBook] = books;
 console.log(firstBook, secondBook);
@@ -203,3 +205,5 @@ console.log(rating, ratingsCount);
 const ratingStars = [63405, 1808];
 const [fiveStarRatings, oneStarRatings, threeStarRatings = 0] = ratingStars;
 console.log(fiveStarRatings, oneStarRatings, threeStarRatings);
+console.groupEnd();
+console.groupEnd();
