@@ -206,4 +206,38 @@ const ratingStars = [63405, 1808];
 const [fiveStarRatings, oneStarRatings, threeStarRatings = 0] = ratingStars;
 console.log(fiveStarRatings, oneStarRatings, threeStarRatings);
 console.groupEnd();
+
+console.group('Destructuring Objects');
+// 2.1
+const {title, author, ISBN} = books[0];
+console.log(title, author, ISBN);
+
+// 2.2
+const {keywords: tags1} = books[0];
+console.log(tags1);
+
+// 2.3
+const {language, programmingLanguage = 'unknown'} = books[6];
+console.log(language, programmingLanguage);
+
+// 2.4
+let bookTitle = 'unknown';
+let bookAuthor = 'unknown';
+({title: bookTitle, author: bookAuthor} = books[0]);
+console.log(bookTitle, bookAuthor);
+
+// 2.5
+const {thirdParty: {goodreads: {rating: bookRating}}} = books[0];
+console.log(bookRating);
+// Equivalent to:
+// const bookRating = books[0].thirdParty.goodreads.rating;
+
+// 2.6
+const printBook = function({title, author, year = 'year unknown'}) {
+  console.log(`${title} by ${author}, ${year}`)
+}
+printBook(books[0]);
+printBook({title: 'The Coin', author: 'Yasmin Zaher', year: 2024});
+
+console.groupEnd();
 console.groupEnd();
