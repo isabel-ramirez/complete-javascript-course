@@ -56,10 +56,69 @@ const restaurant = {
   // -- Good thing is the order does not need to match, just the names.
   orderDelivery: function({starterIdx = 1, mainIdx = 0, time = '20:00', address}) {
     console.log(`Order received! ${this.starterMenu[starterIdx]} and ${this.mainMenu[mainIdx]} will be delivered to ${address} at ${time}`);
+  },
+
+  orderPizza: function(mainIngredient,...otherIngredients) {
+    console.log(`Order received!
+Main Topping: ${mainIngredient},
+Additional Toppings: ${otherIngredients.length !== 0 ? otherIngredients : 'None'}`);
   }
 };
 
+// LECTURE 112 - Rest Pattern and Parameters
+console.group('LECTURE 112 - Rest Pattern and Parameters');
+// SPREAD operator since it is on the RIGHT side of =
+const arr = [1, 2, ...[3, 4]];
+
+// REST operator since it is on the LEFT side of =
+const [k, l, ...others] = [1, 2, 3, 4, 5];
+console.log(k, l, others);
+
+// REST & DESTRUCTURING
+
+// Rest in array destructuring (note: rest is on the left, spread is on the right).
+// Rest collects all the remaining (i.e. rest of the) elements AFTER the last variable
+// It does NOT collect any skipped elements.
+// In example below, 'Pasta' is skipped when destructuring, and rest does not collect it.
+// IMPORTANT: When doing destructuring assignment, the rest pattern must ALWAYS be at the end.
+// -- The idea is, unpack specific values that you need into variables, and then collect the rest.
+const [pizza, , risotto, ...otherFood] = [...restaurant.mainMenu, ...restaurant.starterMenu];
+console.log(pizza, risotto, otherFood);
+
+// Rest in object destructuring
+const {sat, ...weekdays} = restaurant.openingHours;
+console.log(weekdays);
+
+// REST & FUNCTIONS
+const add = function(...numbers) {
+  let sum = numbers.reduce((sum, curr) => sum + curr, 0);
+  console.log(`Sum of ${numbers} is: ${sum}`);
+}
+add(2, 3);
+add(5, 3, 7, 2);
+add(8, 2, 5, 3, 2, 1, 4);
+
+// Spread to send them in, which the function immediately packs up again (rest parameter)
+const myNums = [23, 5, 7];
+add(...myNums);
+
+// Why not just pass an array as the parameter in add()?
+// -- We have the option of passing both arrays and separate values
+// -- We can pass as many single values as we want without having to deal with maintaining an array
+// -- Rest parameters are very common in modern JS codebases
+
+
+restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinach');
+restaurant.orderPizza('mushrooms');
+
+// RECAP
+// -- spread and rest syntax looks the same, but work in opposite ways
+// -- spread is used when we would otherwise use VALUES separated by commas
+// -- rest pattern is used when we would otherwise use VARIABLES separated by commas
+console.groupEnd();
+
 // LECTURE 110 - Object Destructuring
+console.groupCollapsed('LECTURE 110 - Object Destructuring');
 restaurant.orderDelivery({
   time: '22:30',
   address: 'Via del Sole, 21',
@@ -92,7 +151,7 @@ let g = 111;
 let h = 999;
 const obj = {g: 23, h: 7, i: 14};
 
-// -- Here we have to wrap it in () because when we start a line with {}, js 
+// -- Here we have to wrap it in () because when we start a line with {}, js
 //    expects a code block. Since we cannot assign anything to a code block,
 //    we get an error. Trick is to wrap destructuring assignment in ().
 ({g, h} = obj);
@@ -104,9 +163,10 @@ console.log(open, close);
 
 const {openingHours: {sat: {open: openHour, close: closeHour}}} = restaurant;
 console.log(openHour, closeHour);
+console.groupEnd();
 
 // LECTURE 108 - Destructuring Arrays
-console.group('LECTURE 108 - Destructuring Arrays');
+console.groupCollapsed('LECTURE 108 - Destructuring Arrays');
 let [main, secondary] = restaurant.categories;
 console.log(main, secondary);
 
