@@ -238,6 +238,17 @@ const printBook = function({title, author, year = 'year unknown'}) {
 }
 printBook(books[0]);
 printBook({title: 'The Coin', author: 'Yasmin Zaher', year: 2024});
+console.groupEnd();
 
+console.group('The Spread Operator');
+// 3.1
+const bookAuthors = [...books[0].author, ...books[1].author];
+console.log(bookAuthors);
+
+// 3.2
+const spellWord = function(str) {
+  console.log(...str);
+}
+spellWord('JavaScript');
 console.groupEnd();
 console.groupEnd();
