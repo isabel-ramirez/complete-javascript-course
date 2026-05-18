@@ -186,7 +186,7 @@ const books = [
 
 console.group('ASSIGNMENTS');
 // Destructuring arrays
-console.group('Destructuring Arrays');
+console.groupCollapsed('Destructuring Arrays');
 // 1.1
 const [firstBook, secondBook] = books;
 console.log(firstBook, secondBook);
@@ -207,7 +207,7 @@ const [fiveStarRatings, oneStarRatings, threeStarRatings = 0] = ratingStars;
 console.log(fiveStarRatings, oneStarRatings, threeStarRatings);
 console.groupEnd();
 
-console.group('Destructuring Objects');
+console.groupCollapsed('Destructuring Objects');
 // 2.1
 const {title, author, ISBN} = books[0];
 console.log(title, author, ISBN);
@@ -240,7 +240,7 @@ printBook(books[0]);
 printBook({title: 'The Coin', author: 'Yasmin Zaher', year: 2024});
 console.groupEnd();
 
-console.group('The Spread Operator');
+console.groupCollapsed('The Spread Operator');
 // 3.1
 const bookAuthors = [...books[0].author, ...books[1].author];
 console.log(bookAuthors);
@@ -250,5 +250,21 @@ const spellWord = function(str) {
   console.log(...str);
 }
 spellWord('JavaScript');
+console.groupEnd();
+
+console.group('Rest Pattern and Parameters');
+// 4.1
+const {keywords: [mainKeyword, ...rest]} = books[0];
+console.log(mainKeyword, rest);
+
+// 4.2
+const {publisher: bookPublisher, ...restOfTheBook} = books[1];
+console.log(bookPublisher, restOfTheBook);
+
+// 4.3
+const printBookAuthorsCount = function(title, ...authors) {
+  console.log(`The book "${title}" has ${authors.length} authors.`)
+}
+printBookAuthorsCount('Algorithms', 'Robert Sedgewick', 'Kevin Wayne');
 console.groupEnd();
 console.groupEnd();
