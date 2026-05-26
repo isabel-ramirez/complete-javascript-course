@@ -65,8 +65,39 @@ Additional Toppings: ${otherIngredients.length !== 0 ? otherIngredients : 'None'
   }
 };
 
+// LECTURE 113 - Short Circuiting (&& and ||)
+console.group('LECTURE 113 - Short Circuiting (&& and ||)')
+
+console.log('---- || ----')
+// Returns first truthy value, or last falsy value if all false
+// Following are equivalent (terniary operator and || short-circuting)
+// -- Using short-circuiting this way is a good way to set default values if the value doesn't exist
+restaurant.numGuests = 23;
+const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+const guests2 = restaurant.numGuests || 10;
+console.log(guests1, guests2);
+
+// -- the above does not work if the value is 0
+// ---- 0 is falsy, || will consider it as such and evaluate the 2nd value
+restaurant.numGuests = 0;
+const guests3 = restaurant.numGuests || 10;
+console.log(guests3); // Returns 10, even though restaurant.numGuests exists
+console.groupEnd();
+
+console.log('---- && ----');
+// Returns first falsy value, or last truthy value if all true
+// Practical Example:
+// -- Check if a property/method exists before calling it
+// -- IOW using it to execute code based on if the first operand is truthy
+if (restaurant.orderPizza) {
+  restaurant.orderPizza('mushrooms', 'spinach');
+}
+
+// -- Equivalent to above, if the method doesn't exist, && quits/short-circuits
+restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'cheese');
+
 // LECTURE 112 - Rest Pattern and Parameters
-console.group('LECTURE 112 - Rest Pattern and Parameters');
+console.groupCollapsed('LECTURE 112 - Rest Pattern and Parameters');
 // SPREAD operator since it is on the RIGHT side of =
 const arr = [1, 2, ...[3, 4]];
 
