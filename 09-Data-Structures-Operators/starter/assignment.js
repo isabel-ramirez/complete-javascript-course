@@ -268,7 +268,7 @@ const printBookAuthorsCount = function(title, ...authors) {
 printBookAuthorsCount('Algorithms', 'Robert Sedgewick', 'Kevin Wayne');
 console.groupEnd();
 
-console.group('Short-Circuiting || and &&');
+console.groupCollapsed('Short-Circuiting || and &&');
 // 5.1
 const hasExamplesInJava = function(bookObj) {
   return bookObj.programmingLanguage.split(', ').includes('Java') || 'No data available';
@@ -281,6 +281,13 @@ console.log(hasExamplesInJava(books[3]));
 // 5.2
 for (let i = 0; i < books.length; i++) {
   books[i].onlineContent && console.log(`"${books[i].title}" provides online content.`);
+}
+console.groupEnd();
+
+console.group('The Nullish Coalescing Operator (??)');
+// 6.1
+for (let i = 0; i < books.length; i++) {
+  books[i].onlineContent ?? console.log(`"${books[i].title}" provides no data about its online content.`);
 }
 console.groupEnd();
 console.groupEnd();
