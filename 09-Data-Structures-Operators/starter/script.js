@@ -65,8 +65,18 @@ Additional Toppings: ${otherIngredients.length !== 0 ? otherIngredients : 'None'
   }
 };
 
+// LECTURE 114 - Nullish Coalescing Operator (??)
+console.group('LECTURE 114 - Nullish Coalescing Operator (??)');
+// Works with the concept of nullish values (being null or undefined)
+// Other falsy values are treated as if they were truthy, only nullish values will short circuit the evaluation
+// Going back to this example from LECTURE 113
+restaurant.numGuests = 0;
+const guests = restaurant.numGuests ?? 10;
+console.log(guests);
+console.groupEnd();
+
 // LECTURE 113 - Short Circuiting (&& and ||)
-console.group('LECTURE 113 - Short Circuiting (&& and ||)')
+console.groupCollapsed('LECTURE 113 - Short Circuiting (&& and ||)')
 
 console.log('---- || ----')
 // Returns first truthy value, or last falsy value if all false
@@ -82,7 +92,6 @@ console.log(guests1, guests2);
 restaurant.numGuests = 0;
 const guests3 = restaurant.numGuests || 10;
 console.log(guests3); // Returns 10, even though restaurant.numGuests exists
-console.groupEnd();
 
 console.log('---- && ----');
 // Returns first falsy value, or last truthy value if all true
@@ -95,6 +104,7 @@ if (restaurant.orderPizza) {
 
 // -- Equivalent to above, if the method doesn't exist, && quits/short-circuits
 restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'cheese');
+console.groupEnd();
 
 // LECTURE 112 - Rest Pattern and Parameters
 console.groupCollapsed('LECTURE 112 - Rest Pattern and Parameters');
