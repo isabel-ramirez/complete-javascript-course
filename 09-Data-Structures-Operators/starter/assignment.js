@@ -252,7 +252,7 @@ const spellWord = function(str) {
 spellWord('JavaScript');
 console.groupEnd();
 
-console.group('Rest Pattern and Parameters');
+console.groupCollapsed('Rest Pattern and Parameters');
 // 4.1
 const {keywords: [mainKeyword, ...rest]} = books[0];
 console.log(mainKeyword, rest);
@@ -266,5 +266,21 @@ const printBookAuthorsCount = function(title, ...authors) {
   console.log(`The book "${title}" has ${authors.length} authors.`)
 }
 printBookAuthorsCount('Algorithms', 'Robert Sedgewick', 'Kevin Wayne');
+console.groupEnd();
+
+console.group('Short-Circuiting || and &&');
+// 5.1
+const hasExamplesInJava = function(bookObj) {
+  return bookObj.programmingLanguage.split(', ').includes('Java') || 'No data available';
+}
+
+console.log(hasExamplesInJava(books[0]));
+console.log(hasExamplesInJava(books[1]));
+console.log(hasExamplesInJava(books[3]));
+
+// 5.2
+for (let i = 0; i < books.length; i++) {
+  books[i].onlineContent && console.log(`"${books[i].title}" provides online content.`);
+}
 console.groupEnd();
 console.groupEnd();
