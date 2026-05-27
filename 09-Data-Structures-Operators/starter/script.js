@@ -65,8 +65,54 @@ Additional Toppings: ${otherIngredients.length !== 0 ? otherIngredients : 'None'
   }
 };
 
+// LECTURE 115 - Logical Assignment Operators
+console.group('LECTURE 115 - Logical Assignment Operators');
+const rest1 = {
+  name: 'Capri',
+  //numGuests: 20,
+  numGuests: 0,
+};
+
+const rest2 = {
+  name: 'La Piazza',
+  owner: 'Luigi Mangione',
+};
+
+// Setting default values in case property doesn't exist
+//rest1.numGuests = rest1.numGuests || 10;
+//rest2.numGuests = rest2.numGuests || 10;
+//console.log(rest1.numGuests);
+//console.log(rest2.numGuests);
+
+// OR ASSIGNMENT OPERATOR ||=
+// Doing the same using logical assignment operator (||=) my god that's ugly
+// Same but more concise
+// ||= assigns a value to a variable if that variable's value is currently falsy (including if it's 0)
+//rest1.numGuests ||= 10;
+//rest2.numGuests ||= 10;
+//console.log(rest1.numGuests);
+//console.log(rest2.numGuests);
+
+// NULLISH ASSIGNMENT OPERATOR ??=
+// ??= assigns a value to a variable iff that variable's value is currently nullish (null or undefined)
+rest1.numGuests ??= 10;
+rest2.numGuests ??= 10;
+console.log(rest1.numGuests);
+console.log(rest2.numGuests);
+
+// AND ASSIGNMENT OPERATOR &&=
+// &&= assigns a value to a variable iff that variable's value is currently truthy
+rest1.owner &&= '<ANONYMOUS>'; // rest1.owner falsy so nothing happened
+rest2.owner &&= '<ANONYMOUS>';
+console.log(rest1);
+console.log(rest2);
+
+// Without using &&=, using && short circuiting instead looks like this:
+rest2.owner = rest2.owner && '<ANONYMOUS>';
+console.groupEnd();
+
 // LECTURE 114 - Nullish Coalescing Operator (??)
-console.group('LECTURE 114 - Nullish Coalescing Operator (??)');
+console.groupCollapsed('LECTURE 114 - Nullish Coalescing Operator (??)');
 // Works with the concept of nullish values (being null or undefined)
 // Other falsy values are treated as if they were truthy, only nullish values will short circuit the evaluation
 // Going back to this example from LECTURE 113
