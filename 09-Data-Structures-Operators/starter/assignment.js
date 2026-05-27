@@ -284,10 +284,25 @@ for (let i = 0; i < books.length; i++) {
 }
 console.groupEnd();
 
-console.group('The Nullish Coalescing Operator (??)');
+console.groupCollapsed('The Nullish Coalescing Operator (??)');
 // 6.1
 for (let i = 0; i < books.length; i++) {
   books[i].onlineContent ?? console.log(`"${books[i].title}" provides no data about its online content.`);
+}
+console.groupEnd();
+
+console.group('Logical Assigment Operators');
+// 7.1
+for (let i = 0; i < books.length; i++) {
+  books[i].edition ||= 1;
+  console.log(`"${books[i].title}", edition ${books[i].edition}`);
+}
+
+// 7.2
+for (let i = 0; i < books.length; i++) {
+  console.log(`Before: "${books[i].title}", highlighted: ${books[i].highlighted}, goodreads.rating: ${books[i].thirdParty.goodreads.rating}`);
+  books[i].highlighted &&= !(books[i].thirdParty.goodreads.rating < 4.2);
+  console.log(`After: "${books[i].title}", highlighted: ${books[i].highlighted}, goodreads.rating: ${books[i].thirdParty.goodreads.rating}`);
 }
 console.groupEnd();
 console.groupEnd();
